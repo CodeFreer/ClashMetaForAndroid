@@ -2,6 +2,8 @@
 
 package tunnel
 
-import "net"
+import (
+	"net/netip"
+)
 
-var loopback = net.ParseIP("127.0.0.1")
+var loopback = netip.MustParseAddr("127.0.0.1")

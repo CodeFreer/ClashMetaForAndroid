@@ -3,6 +3,7 @@
 package tun
 
 import (
+	"github.com/sagernet/sing/common/metadata"
 	"net"
 	"strconv"
 
@@ -13,8 +14,8 @@ func createMetadata(lAddr, rAddr *net.TCPAddr) *C.Metadata {
 	return &C.Metadata{
 		NetWork:    C.TCP,
 		Type:       C.SOCKS5,
-		SrcIP:      lAddr.IP,
-		DstIP:      rAddr.IP,
+		SrcIP:      metadata.SocksaddrFromNet(lAddr).Addr,
+		DstIP:      metadata.SocksaddrFromNet(rAddr).Addr,
 		SrcPort:    strconv.Itoa(lAddr.Port),
 		DstPort:    strconv.Itoa(rAddr.Port),
 		AddrType:   C.AtypIPv4,

@@ -19,13 +19,9 @@ val golangSource = file("src/main/golang/native")
 
 golang {
     sourceSets {
-        create("foss") {
+        create("meta") {
             tags.set(listOf("foss"))
             srcDir.set(file("src/foss/golang"))
-        }
-        create("premium") {
-            tags.set(listOf("premium", "without_gvisor", "without_system"))
-            srcDir.set(file("src/premium/golang"))
         }
         all {
             fileName.set("libclash.so")

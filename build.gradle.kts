@@ -34,7 +34,7 @@ subprojects {
     extensions.configure<BaseExtension> {
         defaultConfig {
             if (isApp) {
-                applicationId = "com.github.kr328.clash"
+                applicationId = "com.github.metacubex.clash"
             }
 
             minSdk = 21
@@ -72,35 +72,22 @@ subprojects {
         productFlavors {
             flavorDimensions("feature")
 
-            create("foss") {
+            create("meta") {
                 isDefault = true
                 dimension = flavorDimensionList[0]
-                versionNameSuffix = ".foss"
+                versionNameSuffix = ".meta"
 
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
 
                 if (isApp) {
-                    applicationIdSuffix = ".foss"
+                    applicationIdSuffix = ".meta"
                 }
             }
-            create("premium") {
-                dimension = flavorDimensionList[0]
-                versionNameSuffix = ".premium"
+        }
 
-                buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"true\")")
-
-                val tracker = rootProject.file("tracker.properties")
-                if (tracker.exists()) {
-                    val prop = Properties().apply {
-                        tracker.inputStream().use(this::load)
-                    }
-
-                    buildConfigField(
-                        "String",
-                        "APP_CENTER_KEY",
-                        "\"${prop.getProperty("appcenter.key")!!}\""
-                    )
-                }
+        sourceSets {
+            getByName("meta") {
+                java.srcDirs("src/foss/java")
             }
         }
 
@@ -139,11 +126,6 @@ subprojects {
             dataBinding {
                 isEnabled = name != "hideapi"
             }
-        }
-
-        variantFilter {
-            ignore = name.startsWith("premium") && !project(":core")
-                .file("src/premium/golang/clash/go.mod").exists()
         }
 
         if (isApp) {

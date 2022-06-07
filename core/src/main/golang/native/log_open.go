@@ -24,9 +24,7 @@ func init() {
 		sub := log.Subscribe()
 		defer log.UnSubscribe(sub)
 
-		for item := range sub {
-			msg := item.(log.Event)
-
+		for msg := range sub {
 			cPayload := C.CString(msg.Payload)
 
 			switch msg.LogLevel {
@@ -51,12 +49,7 @@ func subscribeLogcat(remote unsafe.Pointer) {
 		sub := log.Subscribe()
 		defer log.UnSubscribe(sub)
 
-		for i := range sub {
-			msg, ok := i.(log.Event)
-			if !ok {
-				continue
-			}
-
+		for msg := range sub {
 			if msg.LogLevel < log.Level() && !strings.HasPrefix(msg.Payload, "[APP]") {
 				continue
 			}
