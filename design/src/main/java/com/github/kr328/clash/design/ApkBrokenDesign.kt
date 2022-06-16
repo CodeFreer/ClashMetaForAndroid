@@ -34,20 +34,11 @@ class ApkBrokenDesign(context: Context) : Design<ApkBrokenDesign.Request>(contex
             category(R.string.reinstall)
 
             clickable(
-                title = R.string.google_play,
-                summary = R.string.google_play_url
-            ) {
-                clicked {
-                    requests.trySend(Request(context.getString(R.string.google_play_url)))
-                }
-            }
-
-            clickable(
                 title = R.string.github_releases,
-                summary = R.string.github_releases_url
+                summary = R.string.meta_github_url
             ) {
                 clicked {
-                    requests.trySend(Request(context.getString(R.string.github_releases_url)))
+                    requests.trySend(Request(context.getString(R.string.meta_github_url)))
                 }
             }
         }
