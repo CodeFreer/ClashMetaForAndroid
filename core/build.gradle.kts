@@ -12,14 +12,14 @@ plugins {
 }
 
 val geoipDatabaseUrl =
-    "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
+    "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb"
 val geoipInvalidate = Duration.ofDays(7)!!
 val geoipOutput = buildDir.resolve("intermediates/golang_blob")
 val golangSource = file("src/main/golang/native")
 
 golang {
     sourceSets {
-        create("meta") {
+        create("meta-alpha") {
             tags.set(listOf("foss"))
             srcDir.set(file("src/foss/golang"))
         }

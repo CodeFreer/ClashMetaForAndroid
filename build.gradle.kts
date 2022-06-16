@@ -34,7 +34,7 @@ subprojects {
     extensions.configure<BaseExtension> {
         defaultConfig {
             if (isApp) {
-                applicationId = "com.github.metacubex.clash"
+                applicationId = "com.github.kr328.clash"
             }
 
             minSdk = 21
@@ -55,7 +55,7 @@ subprojects {
             if (!isApp) {
                 consumerProguardFiles("consumer-rules.pro")
             } else {
-                setProperty("archivesBaseName", "cfa-$versionName")
+                setProperty("archivesBaseName", "cmfa-$versionName")
             }
         }
 
@@ -72,21 +72,21 @@ subprojects {
         productFlavors {
             flavorDimensions("feature")
 
-            create("meta") {
+            create("meta-alpha") {
                 isDefault = true
                 dimension = flavorDimensionList[0]
-                versionNameSuffix = ".meta"
+                versionNameSuffix = ".Meta-Alpha"
 
-                buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
+                buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"true\")")
 
                 if (isApp) {
-                    applicationIdSuffix = ".meta"
+                    applicationIdSuffix = ".foss"
                 }
             }
         }
 
         sourceSets {
-            getByName("meta") {
+            getByName("meta-alpha") {
                 java.srcDirs("src/foss/java")
             }
         }

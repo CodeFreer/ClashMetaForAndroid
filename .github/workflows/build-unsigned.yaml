@@ -1,27 +1,6 @@
 name: Build Unsigned
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '.github/**'
-      - '.idea/**'
-      - '.gitattributes'
-      - '.gitignore'
-      - '.gitmodules'
-      - '**.md'
-      - 'LICENSE'
-      - 'NOTICE'
-  pull_request:
-    paths-ignore:
-      - '.github/**'
-      - '.idea/**'
-      - '.gitattributes'
-      - '.gitignore'
-      - '.gitmodules'
-      - '**.md'
-      - 'LICENSE'
-      - 'NOTICE'
+  workflow_dispatch:
 
 jobs:
   BuildUnsigned:
@@ -51,4 +30,4 @@ jobs:
       - name: Build
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: --no-daemon app:assembleFossRelease
+          arguments: --no-daemon app:assembleMeta-AlphaRelease
