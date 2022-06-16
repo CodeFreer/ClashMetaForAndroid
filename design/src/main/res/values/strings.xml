@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
-    <string name="launch_name">Clash</string>
-    <string name="application_name">Clash for Android</string>
+    <string name="launch_name">Clash Meta for Android</string>
+    <string name="application_name">Clash Meta for Android</string>
 
     <string name="stopped">Stopped</string>
     <string name="tap_to_start">Tap to start</string>
@@ -49,7 +49,6 @@
     <string name="application_broken_tips">App lacks the necessary runtime components, which is usually caused by downloading an incomplete apk.</string>
     <string name="reinstall">Reinstall</string>
     <string name="github_releases">Github Releases</string>
-    <string name="github_releases_url" translatable="false">https://github.com/kr328/clashforandroid/releases</string>
 
     <string name="profile">Profile</string>
     <string name="name">Name</string>
@@ -196,7 +195,7 @@
     <string name="import_from_clipboard">Import from Clipboard</string>
     <string name="export_to_clipboard">Export to Clipboard</string>
 
-    <string name="clash_for_android">Clash for Android</string>
+    <string name="clash_meta_for_android">Clash Meta for Android</string>
 
     <string name="document">Document</string>
     <string name="feedback">Feedback</string>
@@ -205,15 +204,13 @@
     <string name="clash_wiki">Clash Wiki</string>
     <string name="github_issues">Github Issues</string>
     <string name="google_play">Google Play</string>
-    <string name="clash_core">Clash Core</string>
+    <string name="clash_meta_core">Clash Meta Core</string>
     <string name="clash_wiki_url" translatable="false">https://github.com/Dreamacro/clash/wiki</string>
-    <string name="github_issues_url" translatable="false">https://github.com/Kr328/ClashForAndroid/issues</string>
-    <string name="donate_url" translatable="false">https://donate.kr328.app</string>
-    <string name="github_url" translatable="false">https://github.com/Kr328/ClashForAndroid</string>
-    <string name="clash_core_url" translatable="false">https://github.com/Dreamacro/clash</string>
+    <string name="meta_github_url" translatable="false">https://github.com/MetaCubeX/ClashMetaForAndroid</string>
+    <string name="clash_meta_core_url" translatable="false">https://github.com/MetaCubeX/Clash.Meta</string>
 
     <string name="tips_properties"><![CDATA[Accept Only <strong>Clash Config</strong>(including <strong>Proxy</strong>/<strong>Rules</strong>)]]></string>
-    <string name="tips_help"><![CDATA[Clash for Android is a <strong>freeware</strong> and we do <strong>NOT</strong> provide any service for it]]></string>
+    <string name="tips_help"><![CDATA[Clash Meta for Android is a <strong>freeware</strong> and we do <strong>NOT</strong> provide any service for it]]></string>
 
     <string name="google_play_url" translatable="false">https://play.google.com/store/apps/details?id=com.github.kr328.clash</string>
 
@@ -278,4 +275,31 @@
     <string name="version_updated_tips">The settings have been reseted and the old profiles needs to be saved again.</string>
 
     <string name="mode_switch_tips">Valid only for current session</string>
+
+    <string name="clash_meta_wiki">Clash Meta Wiki</string>
+    <string name="clash_meta_wiki_url" translatable="false">https://docs.metacubex.one/</string>
+
+    <string name="meta_features">Meta Features</string>
+    <string name="force_cert_verify">Force Cert Verify</string>
+    <string name="unified_delay">Unified Delay</string>
+    <string name="geodata_mode">Geodata Mode</string>
+    <string name="tcp_concurrent">TCP Concurrent</string>
+    <string name="enable_process">Enable Process</string>
+
+    <string name="sniffer_setting">Sniffer Setting</string>
+    <string name="sniffer">Sniffer</string>
+    <string name="sniffing">Sniffer Mode</string>
+    <string name="force_domain">Force Domain</string>
+    <string name="skip_domain">Skip Domain</string>
+    <string name="disable_sniffer">Disable Sniffer</string>
+    <string name="sniffer_config">Load Sniffer From Config</string>
+    <string name="sniffer_override">Override Sniffer Config</string>
+
+    <string name="geox_url_setting">GeoX Url Setting</string>
+    <string name="geox_geoip">GeoIp Url</string>
+    <string name="geox_mmdb">MMDB Url</string>
+    <string name="geox_geosite">Geosite Url</string>
+    <string name="geoip_url" translatable="false">https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat</string>
+    <string name="mmdb_url" translatable="false">https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb</string>
+    <string name="geosite_url" translatable="false">https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat</string>
 </resources>

@@ -44,11 +44,32 @@ data class ConfigurationOverride(
     @SerialName("hosts")
     var hosts: Map<String, String>? = null,
 
+    @SerialName("force-cert-verify")
+    var forceCertVeriy: Boolean? = null,
+
+    @SerialName("unified-delay")
+    var unifiedDelay: Boolean? = null,
+
+    @SerialName("geodata-mode")
+    var geodataMode: Boolean? = null,
+
+    @SerialName("tcp-concurrent")
+    var tcpConcurrent: Boolean? = null,
+
+    @SerialName("enable-process")
+    var enableProcess: Boolean? = null,
+
     @SerialName("dns")
     val dns: Dns = Dns(),
 
     @SerialName("clash-for-android")
     val app: App = App(),
+
+    @SerialName("sniffer")
+    val sniffer: Sniffer = Sniffer(),
+
+    @SerialName("geox-url")
+    val geoxurl: GeoXUrl = GeoXUrl(),
 ) : Parcelable {
     @Serializable
     data class Dns(
@@ -118,6 +139,33 @@ data class ConfigurationOverride(
         @SerialName("fake-ip")
         FakeIp,
     }
+
+    @Serializable
+    data class Sniffer(
+        @SerialName("enable")
+        var enable: Boolean? = null,
+
+        @SerialName("sniffing")
+        var sniffing: List<String>? = null,
+
+        @SerialName("force-domain")
+        var forceDomain: List<String>? = null,
+
+        @SerialName("skip-domain")
+        var skipDomain: List<String>? = null,
+    )
+
+    @Serializable
+    data class GeoXUrl(
+        @SerialName("geoip")
+        var geoip: String? = null,
+
+        @SerialName("mmdb")
+        var mmdb: String? = null,
+
+        @SerialName("geosite")
+        var geosite: String? = null,
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         Parcelizer.encodeToParcel(serializer(), parcel, this)

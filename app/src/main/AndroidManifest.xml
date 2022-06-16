@@ -137,6 +137,11 @@
             android:exported="false"
             android:label="@string/override" />
         <activity
+            android:name=".MetaFeatureSettingsActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="@string/meta_features" />
+        <activity
             android:name=".AccessControlActivity"
             android:configChanges="uiMode"
             android:exported="false"

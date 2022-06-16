@@ -3,7 +3,6 @@ package com.github.kr328.clash.design
 import android.content.Context
 import android.net.Uri
 import android.view.View
-import com.github.kr328.clash.common.compat.preferredLocale
 import com.github.kr328.clash.design.databinding.DesignSettingsCommonBinding
 import com.github.kr328.clash.design.preference.category
 import com.github.kr328.clash.design.preference.clickable
@@ -45,60 +44,32 @@ class HelpDesign(
                 }
             }
 
-            category(R.string.feedback)
+            clickable(
+                title = R.string.clash_meta_wiki,
+                summary = R.string.clash_meta_wiki_url
+            ) {
+                clicked {
+                    openLink(Uri.parse(context.getString(R.string.clash_meta_wiki_url)))
+                }
+            }
 
-            if (BuildConfig.PREMIUM) {
-                clickable(
-                    title = R.string.google_play,
-                    summary = R.string.google_play_url
-                ) {
-                    clicked {
-                        openLink(Uri.parse(context.getString(R.string.google_play_url)))
-                    }
+            category(R.string.sources)
+
+            clickable(
+                title = R.string.clash_meta_for_android,
+                summary = R.string.meta_github_url
+            ) {
+                clicked {
+                    openLink(Uri.parse(context.getString(R.string.meta_github_url)))
                 }
             }
 
             clickable(
-                title = R.string.github_issues,
-                summary = R.string.github_issues_url
+                title = R.string.clash_meta_core,
+                summary = R.string.clash_meta_core_url
             ) {
                 clicked {
-                    openLink(Uri.parse(context.getString(R.string.github_issues_url)))
-                }
-            }
-
-            if (!BuildConfig.PREMIUM) {
-                category(R.string.sources)
-
-                clickable(
-                    title = R.string.clash_for_android,
-                    summary = R.string.github_url
-                ) {
-                    clicked {
-                        openLink(Uri.parse(context.getString(R.string.github_url)))
-                    }
-                }
-
-                clickable(
-                    title = R.string.clash_core,
-                    summary = R.string.clash_core_url
-                ) {
-                    clicked {
-                        openLink(Uri.parse(context.getString(R.string.clash_core_url)))
-                    }
-                }
-            }
-
-            if (context.resources.configuration.preferredLocale.language == "zh") {
-                category(R.string.donate)
-
-                clickable(
-                    title = R.string.donate,
-                    summary = R.string.donate_url
-                ) {
-                    clicked {
-                        openLink(Uri.parse(context.getString(R.string.donate_url)))
-                    }
+                    openLink(Uri.parse(context.getString(R.string.clash_meta_core_url)))
                 }
             }
         }
