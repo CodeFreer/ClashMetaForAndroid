@@ -3,13 +3,17 @@
 package tunnel
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
 	P "github.com/Dreamacro/clash/adapter/provider"
 	"github.com/Dreamacro/clash/constant/provider"
+	"github.com/Dreamacro/clash/log"
 	"github.com/Dreamacro/clash/tunnel"
 )
+
+var ErrInvalidType = errors.New("invalid type")
 
 type Provider struct {
 	Name        string `json:"name"`
@@ -19,9 +23,18 @@ type Provider struct {
 }
 
 func QueryProviders() []*Provider {
+	r := tunnel.RuleProviders()
 	p := tunnel.Providers()
 
-	providers := make([]provider.Provider, 0, len(p))
+	providers := make([]provider.Provider, 0, len(r)+len(p))
+
+	for _, rule := range r {
+		if rule.VehicleType() == provider.Compatible {
+			continue
+		}
+
+		providers = append(providers, rule)
+	}
 
 	for _, proxy := range p {
 		if proxy.VehicleType() == provider.Compatible {
@@ -51,11 +64,29 @@ func QueryProviders() []*Provider {
 	return result
 }
 
-func UpdateProvider(_ string, name string) error {
-	p, ok := tunnel.Providers()[name]
-	if !ok {
-		return fmt.Errorf("%s not found", name)
+func UpdateProvider(t string, name string) error {
+	err := ErrInvalidType
+
+	switch t {
+	case "Rule":
+		p := tunnel.RuleProviders()[name]
+		if p == nil {
+			return fmt.Errorf("%s not found", name)
+		}
+
+		err = p.Update()
+	case "Proxy":
+		p := tunnel.Providers()[name]
+		if p == nil {
+			return fmt.Errorf("%s not found", name)
+		}
+
+		err = p.Update()
 	}
 
-	return p.Update()
+	if err != nil {
+		log.Warnln("Updating provider %s: %s", name, err.Error())
+	}
+
+	return err
 }

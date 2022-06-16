@@ -17,6 +17,8 @@ data class Proxy(
     enum class Type(val group: Boolean) {
         Direct(false),
         Reject(false),
+        Compatible(false),
+        Pass(false),
 
         Shadowsocks(false),
         ShadowsocksR(false),
@@ -24,7 +26,10 @@ data class Proxy(
         Socks5(false),
         Http(false),
         Vmess(false),
+        Vless(false),
         Trojan(false),
+        Hysteria(false),
+
 
         Relay(true),
         Selector(true),
