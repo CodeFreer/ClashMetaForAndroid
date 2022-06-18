@@ -200,15 +200,13 @@
     <string name="reinstall">重新安裝</string>
     <string name="github_releases">Github Releases</string>
     <string name="unable_to_start_vpn">無法啟動 VPN 元件</string>
-    <string name="request_donate_tips">如果您覺得本應用對您有幫助歡迎在 [協助] 中給予開發人員一些捐助</string>
-    <string name="request_donate">捐助</string>
     <string name="version_updated">應用已更新</string>
     <string name="version_updated_tips">設定已被清除，舊版設定檔需要再次儲存。</string>
     <string name="active_unsaved_tips">設定檔需要在啟用之前儲存</string>
     <string name="mode_switch_tips">僅在本次工作階段中有效</string>
     <string name="import_">匯入</string>
     <string name="sources">原始碼</string>
-    <string name="clash_meta_core">Clash 核心</string>
+    <string name="clash_meta_core">Clash Meta 核心</string>
     <string name="name_server_policy">Name Server 政策</string>
     <string name="block_loopback">攔截本地回送</string>
     <string name="block_loopback_summary">攔截本地回送連結</string>

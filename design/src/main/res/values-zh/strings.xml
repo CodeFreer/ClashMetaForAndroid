@@ -201,8 +201,6 @@
     <string name="reinstall">重新安装</string>
     <string name="github_releases">Github Releases</string>
     <string name="unable_to_start_vpn">无法启动 VPN 组件</string>
-    <string name="request_donate_tips">如果您觉得本应用对您有帮助欢迎在 [帮助] 中给予开发者一点捐赠</string>
-    <string name="request_donate">捐赠</string>
     <string name="version_updated">应用已更新</string>
     <string name="version_updated_tips">设置已被清除，旧的配置文件需要再次保存。</string>
     <string name="active_unsaved_tips">配置文件需要在激活之前保存</string>

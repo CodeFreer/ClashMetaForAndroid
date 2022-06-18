@@ -1,4 +1,4 @@
-name: build_prerelease
+name: build_pre_release
 on:
   workflow_dispatch:
 
@@ -31,7 +31,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
-      - name: PreRelease Build
+      - name: Signing properties
+        env:
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        run: |
+          touch signing.properties
+          echo keystore.password="$SIGNING_STORE_PASSWORD" > signing.properties
+          echo key.alias="$SIGNING_KEY_ALIAS" >> signing.properties
+          echo key.password="$SIGNING_KEY_PASSWORD" >> signing.properties
+            
+          echo "cat signing.properties"
+          cat signing.properties
+
+      - name: Pre-release Build
         if: success()
         uses: gradle/gradle-build-action@v2
         with:
@@ -43,6 +57,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: Prerelease-${{ github.ref_name }}
           deleteOnlyFromDrafts: false
+
       - name: Tag Repo
         uses: richardsimko/update-tag@v1
         with:
