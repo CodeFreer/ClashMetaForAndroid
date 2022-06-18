@@ -18,7 +18,6 @@ import com.github.kr328.clash.design.util.applyFrom
 import com.github.kr328.clash.design.util.layoutInflater
 import com.github.kr328.clash.design.util.resolveThemedColor
 import com.github.kr328.clash.design.util.root
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -81,22 +80,6 @@ class ProxyDesign(
     suspend fun requestRedrawVisible() {
         withContext(Dispatchers.Main) {
             adapter.requestRedrawVisible()
-        }
-    }
-
-    suspend fun requestDonate() {
-        withContext(Dispatchers.Main) {
-            val title = context.getText(R.string.request_donate)
-            val message = context.getText(R.string.request_donate_tips)
-
-            if (title.isNotEmpty() && message.isNotEmpty()) {
-                MaterialAlertDialogBuilder(context)
-                    .setTitle(R.string.request_donate)
-                    .setMessage(R.string.request_donate_tips)
-                    .setPositiveButton(R.string.ok) { _, _ -> }
-                    .setCancelable(true)
-                    .show()
-            }
         }
     }
 

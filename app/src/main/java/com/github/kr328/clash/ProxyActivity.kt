@@ -5,15 +5,12 @@ import com.github.kr328.clash.core.Clash
 import com.github.kr328.clash.core.model.Proxy
 import com.github.kr328.clash.design.ProxyDesign
 import com.github.kr328.clash.design.model.ProxyState
-import com.github.kr328.clash.store.TipsStore
 import com.github.kr328.clash.util.withClash
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.selects.select
 import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
-import java.util.concurrent.TimeUnit
 
 class ProxyActivity : BaseActivity<ProxyDesign>() {
     override suspend fun main() {
@@ -22,7 +19,6 @@ class ProxyActivity : BaseActivity<ProxyDesign>() {
         val states = List(names.size) { ProxyState("?") }
         val unorderedStates = names.indices.map { names[it] to states[it] }.toMap()
         val reloadLock = Semaphore(10)
-        val tips = TipsStore(this)
 
         val design = ProxyDesign(
             this,
@@ -32,17 +28,6 @@ class ProxyActivity : BaseActivity<ProxyDesign>() {
         )
 
         setContentDesign(design)
-
-        launch(Dispatchers.IO) {
-            val pkg = packageManager.getPackageInfo(packageName, 0)
-            val validate = System.currentTimeMillis() - pkg.firstInstallTime > TimeUnit.DAYS.toMillis(5)
-
-            if (tips.requestDonate && validate) {
-                tips.requestDonate = false
-
-                design.requestDonate()
-            }
-        }
 
         design.requests.send(ProxyDesign.Request.ReloadAll)
 
