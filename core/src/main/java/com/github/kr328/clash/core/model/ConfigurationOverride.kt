@@ -44,9 +44,6 @@ data class ConfigurationOverride(
     @SerialName("hosts")
     var hosts: Map<String, String>? = null,
 
-    @SerialName("force-cert-verify")
-    var forceCertVeriy: Boolean? = null,
-
     @SerialName("unified-delay")
     var unifiedDelay: Boolean? = null,
 

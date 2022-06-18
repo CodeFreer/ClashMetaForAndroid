@@ -66,13 +66,6 @@ class MetaFeatureSettingsDesign(
             category(R.string.meta_features)
 
             selectableList(
-                value = configuration::forceCertVeriy,
-                values = booleanValues,
-                valuesText = booleanValuesText,
-                title = R.string.force_cert_verify,
-            )
-
-            selectableList(
                 value = configuration::unifiedDelay,
                 values = booleanValues,
                 valuesText = booleanValuesText,
