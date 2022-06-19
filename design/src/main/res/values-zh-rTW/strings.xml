@@ -43,7 +43,7 @@
     <string name="import_from_url">從 URL 匯入</string>
     <string name="interface_">介面</string>
     <string name="invalid_url">無效 URL</string>
-    <string name="launch_name">Clash Meta for Android</string>
+    <string name="launch_name">Clash Meta</string>
     <string name="logcat">Logcat</string>
     <string name="logs">日誌</string>
     <string name="mode">模式</string>
@@ -211,4 +211,22 @@
     <string name="block_loopback">攔截本地回送</string>
     <string name="block_loopback_summary">攔截本地回送連結</string>
     <string name="clash_meta_for_android">Clash Meta for Android</string>
+    <string name="clash_meta_wiki">Clash Meta Wiki</string>
+    <string name="meta_features">Meta Features</string>
+    <string name="unified_delay">Unified Delay</string>
+    <string name="geodata_mode">Geodata Mode</string>
+    <string name="tcp_concurrent">TCP Concurrent</string>
+    <string name="enable_process">Enable Process</string>
+    <string name="sniffer_setting">Sniffer Setting</string>
+    <string name="sniffer">Sniffer</string>
+    <string name="sniffing">Sniffer Mode</string>
+    <string name="force_domain">Force Domain</string>
+    <string name="skip_domain">Skip Domain</string>
+    <string name="disable_sniffer">Disable Sniffer</string>
+    <string name="sniffer_config">Load Sniffer From Config</string>
+    <string name="sniffer_override">Override Sniffer Config</string>
+    <string name="geox_url_setting">GeoX Url Setting</string>
+    <string name="geox_geoip">GeoIp Url</string>
+    <string name="geox_mmdb">MMDB Url</string>
+    <string name="geox_geosite">Geosite Url</string>
 </resources>

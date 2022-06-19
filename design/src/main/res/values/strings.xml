@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
-    <string name="launch_name">Clash Meta for Android</string>
+    <string name="launch_name">Clash Meta</string>
     <string name="application_name">Clash Meta for Android</string>
 
     <string name="stopped">Stopped</string>
@@ -277,7 +277,6 @@
     <string name="clash_meta_wiki_url" translatable="false">https://docs.metacubex.one/</string>
 
     <string name="meta_features">Meta Features</string>
-    <string name="force_cert_verify">Force Cert Verify</string>
     <string name="unified_delay">Unified Delay</string>
     <string name="geodata_mode">Geodata Mode</string>
     <string name="tcp_concurrent">TCP Concurrent</string>
