@@ -32,10 +32,10 @@ class ProxyPageFactory(private val config: ProxyViewConfig) {
         root.addView(recyclerView)
 
         recyclerView.apply {
-            layoutManager = GridLayoutManager(config.context, 2).apply {
+            layoutManager = GridLayoutManager(config.context, 3).apply {
                 spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                     override fun getSpanSize(position: Int): Int {
-                        return if (config.singleLine) 2 else 1
+                        return if (config.singleLine) 3 else 1
                     }
                 }
             }

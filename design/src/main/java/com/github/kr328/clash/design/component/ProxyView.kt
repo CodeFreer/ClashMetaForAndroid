@@ -40,9 +40,9 @@ class ProxyView(
         }
 
         val textHeight = state.rect.height()
-        val exceptHeight = (state.config.layoutPadding * 2 +
+        val exceptHeight = (state.config.layoutPadding * 4 +
                 state.config.contentPadding * 2 +
-                textHeight * 2 +
+                textHeight * 4 +
                 state.config.textMargin).toInt()
 
         val height = when (MeasureSpec.getMode(heightMeasureSpec)) {
