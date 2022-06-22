@@ -90,7 +90,6 @@
     <string name="deny_selected_apps">不允許已選擇的應用</string>
     <string name="no_profile_selected">未選擇設定檔</string>
     <string name="copied">已複製</string>
-    <string name="script_mode">腳本模式</string>
     <string name="google_play">Google Play</string>
     <string name="filter">過濾</string>
     <string name="select_all">全選</string>

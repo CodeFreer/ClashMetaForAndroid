@@ -56,20 +56,20 @@ class HelpDesign(
             category(R.string.sources)
 
             clickable(
-                title = R.string.clash_meta_for_android,
-                summary = R.string.meta_github_url
-            ) {
-                clicked {
-                    openLink(Uri.parse(context.getString(R.string.meta_github_url)))
-                }
-            }
-
-            clickable(
                 title = R.string.clash_meta_core,
                 summary = R.string.clash_meta_core_url
             ) {
                 clicked {
                     openLink(Uri.parse(context.getString(R.string.clash_meta_core_url)))
+                }
+            }
+
+            clickable(
+                title = R.string.clash_meta_for_android,
+                summary = R.string.meta_github_url
+            ) {
+                clicked {
+                    openLink(Uri.parse(context.getString(R.string.meta_github_url)))
                 }
             }
         }

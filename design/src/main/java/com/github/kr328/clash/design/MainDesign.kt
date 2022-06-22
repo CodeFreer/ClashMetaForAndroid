@@ -10,7 +10,6 @@ import com.github.kr328.clash.design.databinding.DesignMainBinding
 import com.github.kr328.clash.design.util.layoutInflater
 import com.github.kr328.clash.design.util.resolveThemedColor
 import com.github.kr328.clash.design.util.root
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -56,7 +55,7 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
                 TunnelState.Mode.Direct -> context.getString(R.string.direct_mode)
                 TunnelState.Mode.Global -> context.getString(R.string.global_mode)
                 TunnelState.Mode.Rule -> context.getString(R.string.rule_mode)
-                TunnelState.Mode.Script -> context.getString(R.string.script_mode)
+                else -> context.getString(R.string.rule_mode)
             }
         }
     }
@@ -75,16 +74,6 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
 
             AlertDialog.Builder(context)
                 .setView(binding.root)
-                .show()
-        }
-    }
-
-    suspend fun showUpdatedTips() {
-        withContext(Dispatchers.Main) {
-            MaterialAlertDialogBuilder(context)
-                .setTitle(R.string.version_updated)
-                .setMessage(R.string.version_updated_tips)
-                .setPositiveButton(R.string.ok) { _, _ -> }
                 .show()
         }
     }

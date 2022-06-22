@@ -77,7 +77,7 @@ subprojects {
                 dimension = flavorDimensionList[0]
                 versionNameSuffix = ".Meta-Alpha"
 
-                buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"true\")")
+                buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
 
                 if (isApp) {
                     applicationIdSuffix = ".foss"

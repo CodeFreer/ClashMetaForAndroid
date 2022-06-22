@@ -63,7 +63,7 @@ class MetaFeatureSettingsDesign(
         )
 
         val screen = preferenceScreen(context) {
-            category(R.string.meta_features)
+            category(R.string.settings)
 
             selectableList(
                 value = configuration::unifiedDelay,
@@ -164,7 +164,7 @@ class MetaFeatureSettingsDesign(
             )
 
             editableText(
-                value = configuration.geoxurl::geoip,
+                value = configuration.geoxurl::mmdb,
                 adapter = NullableTextAdapter.String,
                 title = R.string.geox_mmdb,
                 placeholder = R.string.dont_modify,
@@ -173,7 +173,7 @@ class MetaFeatureSettingsDesign(
             )
 
             editableText(
-                value = configuration.geoxurl::geoip,
+                value = configuration.geoxurl::geosite,
                 adapter = NullableTextAdapter.String,
                 title = R.string.geox_geosite,
                 placeholder = R.string.dont_modify,

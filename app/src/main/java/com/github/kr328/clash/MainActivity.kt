@@ -5,14 +5,12 @@ import com.github.kr328.clash.common.util.intent
 import com.github.kr328.clash.common.util.ticker
 import com.github.kr328.clash.design.MainDesign
 import com.github.kr328.clash.design.ui.ToastDuration
-import com.github.kr328.clash.store.TipsStore
 import com.github.kr328.clash.util.startClashService
 import com.github.kr328.clash.util.stopClashService
 import com.github.kr328.clash.util.withClash
 import com.github.kr328.clash.util.withProfile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.selects.select
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
@@ -22,10 +20,6 @@ class MainActivity : BaseActivity<MainDesign>() {
         val design = MainDesign(this)
 
         setContentDesign(design)
-
-        launch(Dispatchers.IO) {
-            showUpdatedTips(design)
-        }
 
         design.fetch()
 
@@ -71,20 +65,6 @@ class MainActivity : BaseActivity<MainDesign>() {
                         design.fetchTraffic()
                     }
                 }
-            }
-        }
-    }
-
-    private suspend fun showUpdatedTips(design: MainDesign) {
-        val tips = TipsStore(this)
-
-        if (tips.primaryVersion != TipsStore.CURRENT_PRIMARY_VERSION) {
-            tips.primaryVersion = TipsStore.CURRENT_PRIMARY_VERSION
-
-            val pkg = packageManager.getPackageInfo(packageName, 0)
-
-            if (pkg.firstInstallTime != pkg.lastUpdateTime) {
-                design.showUpdatedTips()
             }
         }
     }
