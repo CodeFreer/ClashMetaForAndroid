@@ -34,13 +34,13 @@ subprojects {
     extensions.configure<BaseExtension> {
         defaultConfig {
             if (isApp) {
-                applicationId = "com.github.kr328.clash"
+                applicationId = "com.github.metacubex.clash"
             }
 
             minSdk = 21
             targetSdk = 31
 
-            versionName = "2.5.9-pa01"
+            versionName = "2.5.9-pa02"
             versionCode = 205009
 
             resValue("string", "release_name", "v$versionName")
@@ -80,7 +80,7 @@ subprojects {
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
 
                 if (isApp) {
-                    applicationIdSuffix = ".foss"
+                    applicationIdSuffix = ".meta"
                 }
             }
         }
