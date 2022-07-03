@@ -15,45 +15,30 @@ require (
 
 replace github.com/Dreamacro/clash => ../../foss/golang/clash
 
-replace github.com/tobyxdd/hysteria => github.com/MetaCubeX/hysteria v1.0.5-0.20220626134949-6fa84cd3e256
-
 replace github.com/lucas-clemente/quic-go => github.com/tobyxdd/quic-go v0.27.1-0.20220512040129-ed2a645d9218
 
 require (
-	github.com/beorn7/perks v1.0.1 // indirect
-	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/cheekybits/genny v1.0.0 // indirect
 	github.com/coreos/go-iptables v0.6.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20210107165309-348f09dbbbc0 // indirect
 	github.com/gofrs/uuid v4.2.0+incompatible // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/gopacket v1.1.19 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
-	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/insomniacslk/dhcp v0.0.0-20220504074936-1ca156eafb9f // indirect
 	github.com/klauspost/cpuid/v2 v2.0.12 // indirect
 	github.com/lucas-clemente/quic-go v0.27.2 // indirect
 	github.com/lunixbochs/struc v0.0.0-20200707160740-784aaebc1d40 // indirect
+	github.com/marten-seemann/qpack v0.2.1 // indirect
 	github.com/marten-seemann/qtls-go1-16 v0.1.5 // indirect
 	github.com/marten-seemann/qtls-go1-17 v0.1.1 // indirect
 	github.com/marten-seemann/qtls-go1-18 v0.1.1 // indirect
-	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/onsi/ginkgo v1.16.5 // indirect
 	github.com/oschwald/maxminddb-golang v1.9.0 // indirect
-	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
-	github.com/prometheus/client_golang v1.12.2 // indirect
-	github.com/prometheus/client_model v0.2.0 // indirect
-	github.com/prometheus/common v0.32.1 // indirect
-	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/sagernet/sing-shadowsocks v0.0.0-20220627234717-689e0165ef2c // indirect
 	github.com/sagernet/sing-vmess v0.0.0-20220616051646-3d3fc5d01eec // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
-	github.com/tobyxdd/hysteria v1.0.4 // indirect
-	github.com/txthinking/runnergroup v0.0.0-20210608031112-152c7c4432bf // indirect
-	github.com/txthinking/socks5 v0.0.0-20220212043548-414499347d4a // indirect
-	github.com/txthinking/x v0.0.0-20210326105829-476fab902fbe // indirect
 	github.com/u-root/uio v0.0.0-20220204230159-dac05f7d2cb4 // indirect
 	github.com/xtls/go v0.0.0-20210920065950-d4af136d3672 // indirect
 	go.etcd.io/bbolt v1.3.6 // indirect
