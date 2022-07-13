@@ -6,6 +6,10 @@ A Graphical user interface of [Clash.Meta](https://github.com/MetaCubeX/Clash.Me
 
 Feature of [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta)
 
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/com.github.metacubex.clash.meta/)
+
 ### Requirement
 
 - Android 5.0+ (minimum)
