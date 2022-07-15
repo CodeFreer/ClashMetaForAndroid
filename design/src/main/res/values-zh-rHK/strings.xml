@@ -228,4 +228,6 @@
     <string name="geox_geoip">GeoIp Url</string>
     <string name="geox_mmdb">MMDB Url</string>
     <string name="geox_geosite">Geosite Url</string>
+    <string name="prefer_h3">Prefer h3</string>
+    <string name="port_whitelist">Port Whitelist</string>
 </resources>

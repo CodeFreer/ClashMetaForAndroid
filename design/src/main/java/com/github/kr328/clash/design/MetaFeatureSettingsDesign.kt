@@ -93,6 +93,47 @@ class MetaFeatureSettingsDesign(
                 title = R.string.enable_process,
             )
 
+            category(R.string.dns)
+
+            val dnsDependencies: MutableList<Preference> = mutableListOf()
+
+            val dns = selectableList(
+                value = configuration.dns::enable,
+                values = arrayOf(
+                    null,
+                    true,
+                    false
+                ),
+                valuesText = arrayOf(
+                    R.string.dont_modify,
+                    R.string.force_enable,
+                    R.string.use_built_in,
+                ),
+                title = R.string.strategy
+            ) {
+                listener = OnChangedListener {
+                    if (configuration.dns.enable == false) {
+                        dnsDependencies.forEach {
+                            it.enabled = false
+                        }
+                    } else {
+                        dnsDependencies.forEach {
+                            it.enabled = true
+                        }
+                    }
+                }
+            }
+
+            selectableList(
+                value = configuration.dns::preferH3,
+                values = booleanValues,
+                valuesText = booleanValuesText,
+                title = R.string.prefer_h3,
+                configure = dnsDependencies::add,
+            )
+
+            dns.listener?.onChanged()
+
             category(R.string.sniffer_setting)
 
             val snifferDependencies: MutableList<Preference> = mutableListOf()
@@ -148,8 +189,16 @@ class MetaFeatureSettingsDesign(
                 configure = snifferDependencies::add,
             )
 
-            sniffer.listener?.onChanged()
+            editableTextList(
+                value = configuration.sniffer::portWhitelist,
+                adapter = TextAdapter.String,
+                title = R.string.port_whitelist,
+                placeholder = R.string.dont_modify,
+                configure = snifferDependencies::add,
+            )
 
+            sniffer.listener?.onChanged()
+/*
             category(R.string.geox_url_setting)
 
             val geoxurlDependencies: MutableList<Preference> = mutableListOf()
@@ -180,6 +229,7 @@ class MetaFeatureSettingsDesign(
                 empty = R.string.geosite_url,
                 configure = geoxurlDependencies::add,
             )
+*/
         }
 
         binding.content.addView(screen.root)

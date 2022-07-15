@@ -73,6 +73,9 @@ data class ConfigurationOverride(
         @SerialName("enable")
         var enable: Boolean? = null,
 
+        @SerialName("prefer-h3")
+        var preferH3: Boolean? = null,
+
         @SerialName("listen")
         var listen: String? = null,
 
@@ -150,6 +153,9 @@ data class ConfigurationOverride(
 
         @SerialName("skip-domain")
         var skipDomain: List<String>? = null,
+
+        @SerialName("port-whitelist")
+        var portWhitelist: List<String>? = null,
     )
 
     @Serializable

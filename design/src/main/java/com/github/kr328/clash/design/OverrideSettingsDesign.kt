@@ -271,6 +271,14 @@ class OverrideSettingsDesign(
                 }
             }
 
+            selectableList(
+                value = configuration.dns::preferH3,
+                values = booleanValues,
+                valuesText = booleanValuesText,
+                title = R.string.prefer_h3,
+                configure = dnsDependencies::add,
+            )
+
             editableText(
                 value = configuration.dns::listen,
                 adapter = NullableTextAdapter.String,
