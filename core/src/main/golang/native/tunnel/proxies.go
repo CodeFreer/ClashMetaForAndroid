@@ -96,7 +96,8 @@ func QueryProxyGroup(name string, sortMode SortMode, uiSubtitlePattern *regexp2.
 		return nil
 	}
 
-	proxies := collectProviders(g.Providers(), uiSubtitlePattern)
+	proxies := convertProxies(g.Proxies(), uiSubtitlePattern)
+	//proxies := collectProviders(g.Providers(), uiSubtitlePattern)
 
 	switch sortMode {
 	case Title:
@@ -160,6 +161,36 @@ func PatchSelector(selector, name string) bool {
 	closeConnByGroup(selector)
 
 	return true
+}
+
+func convertProxies(proxies []C.Proxy, uiSubtitlePattern *regexp2.Regexp) []*Proxy {
+	result := make([]*Proxy, 0, 128)
+
+	for _, p := range proxies {
+		name := p.Name()
+		title := name
+		subtitle := p.Type().String()
+
+		if uiSubtitlePattern != nil {
+			if _, ok := p.(*adapter.Proxy).ProxyAdapter.(outboundgroup.ProxyGroup); !ok {
+				runes := []rune(name)
+				match, err := uiSubtitlePattern.FindRunesMatch(runes)
+				if err == nil && match != nil {
+					title = string(runes[:match.Index]) + string(runes[match.Index+match.Length:])
+					subtitle = string(runes[match.Index : match.Index+match.Length])
+				}
+			}
+		}
+
+		result = append(result, &Proxy{
+			Name:     name,
+			Title:    strings.TrimSpace(title),
+			Subtitle: strings.TrimSpace(subtitle),
+			Type:     p.Type().String(),
+			Delay:    int(p.LastDelay()),
+		})
+	}
+	return result
 }
 
 func collectProviders(providers []provider.ProxyProvider, uiSubtitlePattern *regexp2.Regexp) []*Proxy {
