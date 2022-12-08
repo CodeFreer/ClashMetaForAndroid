@@ -29,6 +29,7 @@ data class Proxy(
         Vless(false),
         Trojan(false),
         Hysteria(false),
+        Tuic(false),
         WireGuard(false),
 
 
