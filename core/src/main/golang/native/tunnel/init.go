@@ -30,7 +30,6 @@ func init() {
 			SrcIP:      loopback,
 			SrcPort:    "65535",
 			DstPort:    port,
-			AddrType:   C.AtypDomainName,
 			Host:       host,
 			RawSrcAddr: left.RemoteAddr(),
 			RawDstAddr: left.LocalAddr(),

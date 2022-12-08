@@ -18,7 +18,6 @@ func createMetadata(lAddr, rAddr *net.TCPAddr) *C.Metadata {
 		DstIP:      metadata.SocksaddrFromNet(rAddr).Addr,
 		SrcPort:    strconv.Itoa(lAddr.Port),
 		DstPort:    strconv.Itoa(rAddr.Port),
-		AddrType:   C.AtypIPv4,
 		Host:       "",
 		RawSrcAddr: lAddr,
 		RawDstAddr: rAddr,
