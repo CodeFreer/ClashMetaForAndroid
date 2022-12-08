@@ -198,7 +198,7 @@ class MetaFeatureSettingsDesign(
             )
 
             sniffer.listener?.onChanged()
-
+            /*
             category(R.string.geox_url_setting)
 
             val geoxurlDependencies: MutableList<Preference> = mutableListOf()
@@ -228,7 +228,7 @@ class MetaFeatureSettingsDesign(
                 placeholder = R.string.dont_modify,
                 empty = R.string.geosite_url,
                 configure = geoxurlDependencies::add,
-            )
+            ) */
         }
 
         binding.content.addView(screen.root)
