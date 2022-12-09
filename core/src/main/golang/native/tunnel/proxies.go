@@ -96,8 +96,8 @@ func QueryProxyGroup(name string, sortMode SortMode, uiSubtitlePattern *regexp2.
 		return nil
 	}
 
-// 	proxies := convertProxies(g.proxies(), uiSubtitlePattern)
-	proxies := collectProviders(g.Providers(), uiSubtitlePattern)
+ 	proxies := convertProxies(g.Proxies(), uiSubtitlePattern)
+// 	proxies := collectProviders(g.Providers(), uiSubtitlePattern)
 
 	switch sortMode {
 	case Title:
