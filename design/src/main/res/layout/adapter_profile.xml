@@ -13,16 +13,18 @@
         <variable
             name="menu"
             type="android.view.View.OnClickListener" />
-
+        <import type="android.view.View" />
         <import type="com.github.kr328.clash.design.util.I18nKt" />
         <import type="com.github.kr328.clash.design.util.IntervalKt" />
     </data>
 
     <RelativeLayout
+        android:elevation="5dp"
         android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_b"
         android:clickable="true"
         android:focusable="true"
         android:minHeight="@dimen/item_min_height"
@@ -61,6 +63,43 @@
                 android:layout_marginTop="@dimen/item_text_margin"
                 android:text="@{profile.pending ? @string/format_type_unsaved(I18nKt.toString(profile.type, context)) : I18nKt.toString(profile.type, context)}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{profile.download ==0 ? View.GONE : View.VISIBLE}"
+                    android:text='@{profile.download >0 ?I18nKt.toBytesString(profile.download+profile.upload)+"/" :""}'
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+                <TextView
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{profile.download ==0 ? View.GONE : View.VISIBLE}"
+                    android:text='@{profile.download >0 ?I18nKt.toBytesString(profile.total) : ""}'
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+            </LinearLayout>
+            <TextView
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{profile.expire==0 ? View.GONE : View.VISIBLE}"
+                android:text='@{profile.expire>0 ? I18nKt.toDateStr(profile.expire):""}'
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="1000"
+                android:visibility="@{profile.download==0 ? View.GONE : View.VISIBLE}"
+                android:progress="@{profile.download>0 ?I18nKt.toProgress ((profile.download+profile.upload)/(profile.total/1000)) :0}"
+                />
         </LinearLayout>
 
         <TextView
@@ -74,12 +113,10 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Tooltip" />
 
         <View
-            android:layout_width="@dimen/divider_size"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
             android:layout_toStartOf="@id/menu_view"
-            android:background="?attr/colorControlHighlight"
-            android:minHeight="@{@dimen/item_tailing_component_size * 1.5f}" />
+            android:background="@color/color_clash_dark" />
 
         <FrameLayout
             android:id="@+id/menu_view"

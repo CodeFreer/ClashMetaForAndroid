@@ -18,6 +18,11 @@ data class Profile(
     val source: String,
     val active: Boolean,
     val interval: Long,
+    val upload: Long,
+    var download: Long,
+    val total: Long,
+    val expire: Long,
+
 
     val updatedAt: Long,
     val imported: Boolean,
