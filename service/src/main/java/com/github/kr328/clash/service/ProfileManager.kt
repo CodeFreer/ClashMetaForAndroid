@@ -129,7 +129,7 @@ class ProfileManager(private val context: Context) : IProfileManager,
     override suspend fun update(uuid: UUID) {
         scheduleUpdate(uuid, true)
         ImportedDao().queryByUUID(uuid)?.let {
-            if (it.type == Profile.Type.Url) {
+            if (it.type == Profile.Type.Url && it.source.startsWith("https://",true)) {
                 updateFlow(it)
             }
         }

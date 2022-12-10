@@ -21,6 +21,7 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import java.net.URL
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -72,62 +73,64 @@ object ProfileProcessor {
                         var total: Long = 0
                         var expire: Long = 0
                         if (snapshot?.type == Profile.Type.Url) {
-                            val client = OkHttpClient()
-                            val request = Request.Builder()
-                                .url(snapshot.source)
-                                .header("User-Agent", "ClashforWindows/0.19.23")
-                                .build()
+                            if (snapshot.source.startsWith("https://", true)) {
+                                val client = OkHttpClient()
+                                val request = Request.Builder()
+                                    .url(snapshot.source)
+                                    .header("User-Agent", "ClashforWindows/0.19.23")
+                                    .build()
 
-                            client.newCall(request).execute().use { response ->
-                                val userinfo = response.headers["subscription-userinfo"]
-                                if (response.isSuccessful && userinfo != null) {
-                                    val flags = userinfo.split(";")
-                                    for (flag in flags) {
-                                        val info = flag.split("=")
-                                        when {
-                                            info[0].contains("upload") -> upload =
-                                                info[1].toLong()
+                                client.newCall(request).execute().use { response ->
+                                    val userinfo = response.headers["subscription-userinfo"]
+                                    if (response.isSuccessful && userinfo != null) {
+                                        val flags = userinfo.split(";")
+                                        for (flag in flags) {
+                                            val info = flag.split("=")
+                                            when {
+                                                info[0].contains("upload") -> upload =
+                                                    info[1].toLong()
 
-                                            info[0].contains("download") -> download =
-                                                info[1].toLong()
+                                                info[0].contains("download") -> download =
+                                                    info[1].toLong()
 
-                                            info[0].contains("total") -> total =
-                                                info[1].toLong()
+                                                info[0].contains("total") -> total =
+                                                    info[1].toLong()
 
-                                            info[0].contains("expire") -> {
-                                                if (info[1].isNotEmpty()) {
-                                                    expire = (info[1].toDouble() * 1000).toLong()
+                                                info[0].contains("expire") -> {
+                                                    if (info[1].isNotEmpty()) {
+                                                        expire =
+                                                            (info[1].toDouble() * 1000).toLong()
+                                                    }
                                                 }
                                             }
                                         }
                                     }
-
                                 }
-                                val new = Imported(
-                                    snapshot.uuid,
-                                    snapshot.name,
-                                    snapshot.type,
-                                    snapshot.source,
-                                    snapshot.interval,
-                                    upload,
-                                    download,
-                                    total,
-                                    expire,
-                                    old?.createdAt ?: System.currentTimeMillis()
-                                )
-                                if (old != null) {
-                                    ImportedDao().update(new)
-                                } else {
-                                    ImportedDao().insert(new)
-                                }
-
-                                PendingDao().remove(snapshot.uuid)
-
-                                context.pendingDir.resolve(snapshot.uuid.toString())
-                                    .deleteRecursively()
-
-                                context.sendProfileChanged(snapshot.uuid)
                             }
+                            val new = Imported(
+                                snapshot.uuid,
+                                snapshot.name,
+                                snapshot.type,
+                                snapshot.source,
+                                snapshot.interval,
+                                upload,
+                                download,
+                                total,
+                                expire,
+                                old?.createdAt ?: System.currentTimeMillis()
+                            )
+                            if (old != null) {
+                                ImportedDao().update(new)
+                            } else {
+                                ImportedDao().insert(new)
+                            }
+
+                            PendingDao().remove(snapshot.uuid)
+
+                            context.pendingDir.resolve(snapshot.uuid.toString())
+                                .deleteRecursively()
+
+                            context.sendProfileChanged(snapshot.uuid)
                         } else if (snapshot?.type == Profile.Type.File) {
                             val new = Imported(
                                 snapshot.uuid,
