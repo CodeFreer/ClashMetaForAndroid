@@ -96,7 +96,7 @@ object ProfileProcessor {
 
                                             info[0].contains("expire") -> {
                                                 if (info[1].isNotEmpty()) {
-                                                    expire = info[1].toLong()
+                                                    expire = (info[1].toDouble() * 1000).toLong()
                                                 }
                                             }
                                         }
