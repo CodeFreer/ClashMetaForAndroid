@@ -33,8 +33,12 @@
                     android:id="@+id/single"
                     android:title="@string/single" />
                 <item
+                    android:id="@+id/doubles"
+                    android:title="@string/doubles" />
+                <item
                     android:id="@+id/multiple"
                     android:title="@string/multiple" />
+
             </group>
         </menu>
     </item>

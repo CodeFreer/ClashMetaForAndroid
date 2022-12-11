@@ -30,9 +30,9 @@ class UiStore(context: Context) {
         defaultValue = false,
     )
 
-    var proxySingleLine: Boolean by store.boolean(
-        key = "proxy_single_line",
-        defaultValue = false
+    var proxyLine: Int by store.int(
+        key = "proxy_line",
+        defaultValue = 2
     )
 
     var proxySort: ProxySort by store.enum(

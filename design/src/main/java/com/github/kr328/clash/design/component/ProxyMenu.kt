@@ -35,14 +35,21 @@ class ProxyMenu(
                 requests.trySend(ProxyDesign.Request.ReLaunch)
             }
             R.id.single -> {
-                uiStore.proxySingleLine = true
+                uiStore.proxyLine = 1
+
+                updateConfig()
+
+                requests.trySend(ProxyDesign.Request.ReloadAll)
+            }
+            R.id.doubles -> {
+                uiStore.proxyLine = 2
 
                 updateConfig()
 
                 requests.trySend(ProxyDesign.Request.ReloadAll)
             }
             R.id.multiple -> {
-                uiStore.proxySingleLine = false
+                uiStore.proxyLine = 3
 
                 updateConfig()
 
@@ -87,10 +94,10 @@ class ProxyMenu(
         menu.menu.apply {
             findItem(R.id.not_selectable).isChecked = uiStore.proxyExcludeNotSelectable
 
-            if (uiStore.proxySingleLine) {
-                findItem(R.id.single).isChecked = true
-            } else {
-                findItem(R.id.multiple).isChecked = true
+            when (uiStore.proxyLine){
+                1 -> findItem(R.id.single).isChecked = true
+                2 -> findItem(R.id.doubles).isChecked = true
+                3 -> findItem(R.id.multiple).isChecked = true
             }
 
             when (uiStore.proxySort) {

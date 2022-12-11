@@ -6,19 +6,19 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.view.View
 import com.github.kr328.clash.common.compat.getDrawableCompat
+import com.github.kr328.clash.design.store.UiStore
 
 class ProxyView(
     context: Context,
     config: ProxyViewConfig,
 ) : View(context) {
-    constructor(context: Context) : this(context, ProxyViewConfig(context, false))
 
     init {
         background = context.getDrawableCompat(config.clickableBackground)
     }
 
     var state: ProxyViewState? = null
-
+    constructor(context: Context) : this(context, ProxyViewConfig(context, 2))
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val state = state ?: return super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
@@ -40,9 +40,9 @@ class ProxyView(
         }
 
         val textHeight = state.rect.height()
-        val exceptHeight = (state.config.layoutPadding * 2 +
+        val exceptHeight = (state.config.layoutPadding * 4 +
                 state.config.contentPadding * 2 +
-                textHeight * 2 +
+                textHeight * 4 +
                 state.config.textMargin).toInt()
 
         val height = when (MeasureSpec.getMode(heightMeasureSpec)) {
@@ -75,7 +75,7 @@ class ProxyView(
 
         // draw background
         canvas.apply {
-            if (state.config.singleLine) {
+            if (state.config.proxyLine==1) {
                 drawRect(0f, 0f, width, height, paint)
             } else {
                 val path = state.path

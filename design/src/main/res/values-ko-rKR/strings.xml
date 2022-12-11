@@ -185,6 +185,7 @@
     <string name="no_profile_selected">구성 파일이 선택되지 않았습니다.</string>
     <string name="layout">레이아웃</string>
     <string name="single">단일</string>
+    <string name="doubles">더블</string>
     <string name="multiple">복합</string>
     <string name="not_selectable">선택 불가</string>
     <string name="providers">외부 리소스</string>

@@ -135,6 +135,7 @@
     <string name="sort">排序</string>
     <string name="layout">布局</string>
     <string name="single">单列</string>
+    <string name="doubles">双列</string>
     <string name="multiple">多列</string>
     <string name="not_selectable">不可选择</string>
     <string name="providers">外部资源</string>

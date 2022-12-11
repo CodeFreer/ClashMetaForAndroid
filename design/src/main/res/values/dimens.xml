@@ -64,10 +64,10 @@
     <dimen name="main_top_banner_height">90dp</dimen>
 
     <!--  Proxy Design -->
-    <dimen name="proxy_layout_padding">5dp</dimen>
-    <dimen name="proxy_content_padding">15dp</dimen>
-    <dimen name="proxy_text_margin">10dp</dimen>
-    <dimen name="proxy_text_size">12sp</dimen>
+    <dimen name="proxy_layout_padding">3dp</dimen>
+    <dimen name="proxy_content_padding">6dp</dimen>
+    <dimen name="proxy_text_margin">5dp</dimen>
+    <dimen name="proxy_text_size">11sp</dimen>
     <dimen name="proxy_card_radius">5dp</dimen>
     <dimen name="proxy_card_offset">0dp</dimen>
 

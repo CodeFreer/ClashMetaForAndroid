@@ -7,7 +7,7 @@ import com.github.kr328.clash.design.util.getPixels
 import com.github.kr328.clash.design.util.resolveThemedColor
 import com.github.kr328.clash.design.util.resolveThemedResourceId
 
-class ProxyViewConfig(val context: Context, var singleLine: Boolean) {
+class ProxyViewConfig(val context: Context, var proxyLine: Int) {
     private val colorSurface = context.resolveThemedColor(R.attr.colorSurface)
 
     val clickableBackground =
@@ -18,7 +18,7 @@ class ProxyViewConfig(val context: Context, var singleLine: Boolean) {
 
     val unselectedControl = context.resolveThemedColor(R.attr.colorOnSurface)
     val unselectedBackground: Int
-        get() = if (singleLine) Color.TRANSPARENT else colorSurface
+        get() = if (proxyLine==1) Color.TRANSPARENT else colorSurface
 
     val layoutPadding = context.getPixels(R.dimen.proxy_layout_padding).toFloat()
     val contentPadding = context.getPixels(R.dimen.proxy_content_padding).toFloat()

@@ -185,6 +185,7 @@
     <string name="no_profile_selected">プロファイルが選択されていません</string>
     <string name="layout">レイアウト</string>
     <string name="single">シングルカラム</string>
+    <string name="doubles">ダブルカラム</string>
     <string name="multiple">マルチカラム</string>
     <string name="not_selectable">選択不可</string>
     <string name="providers">プロバイダー</string>
