@@ -74,16 +74,16 @@
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="@{profile.download ==0 ? View.GONE : View.VISIBLE}"
-                    android:text='@{profile.download >0 ?I18nKt.toBytesString(profile.download+profile.upload)+"/" :""}'
+                    android:visibility="@{profile.download &lt;2 ? View.GONE : View.VISIBLE}"
+                    android:text='@{profile.download >1  ?I18nKt.toBytesString(profile.download+profile.upload)+"/" :""}'
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
                 <TextView
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="@{profile.download ==0 ? View.GONE : View.VISIBLE}"
-                    android:text='@{profile.download >0 ?I18nKt.toBytesString(profile.total) : ""}'
+                    android:visibility="@{profile.download &lt;2 ? View.GONE : View.VISIBLE}"
+                    android:text='@{profile.total >1 ?I18nKt.toBytesString(profile.total) : ""}'
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
             </LinearLayout>
             <TextView
@@ -98,8 +98,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:max="1000"
-                android:visibility="@{profile.download==0 ? View.GONE : View.VISIBLE}"
-                android:progress="@{profile.download>0 ?I18nKt.toProgress ((profile.download+profile.upload)/(profile.total/1000)) :0}"
+                android:visibility="@{profile.total &lt; 2 ? View.GONE : View.VISIBLE}"
+                android:progress="@{profile.total>1 ?I18nKt.toProgress ((profile.download+profile.upload)/(profile.total/1000)) :0}"
                 />
         </LinearLayout>
 
