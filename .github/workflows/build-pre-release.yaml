@@ -75,3 +75,6 @@ jobs:
           files: app/build/outputs/apk/meta-alpha/release/*
           prerelease: true
           generate_release_notes: true
+
+      - name: Release Changelog Builder
+        uses: mikepenz/release-changelog-builder-action@v3.6.0
