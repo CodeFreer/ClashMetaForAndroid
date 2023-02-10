@@ -25,7 +25,6 @@ require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/cilium/ebpf v0.9.3 // indirect
 	github.com/coreos/go-iptables v0.6.0 // indirect
-	github.com/database64128/tfo-go/v2 v2.0.2 // indirect
 	github.com/dlclark/regexp2 v1.7.0 // indirect
 	github.com/gofrs/uuid v4.3.1+incompatible // indirect
 	github.com/golang/mock v1.6.0 // indirect
@@ -57,8 +56,9 @@ require (
 	github.com/sagernet/abx-go v0.0.0-20220819185957-dba1257d738e // indirect
 	github.com/sagernet/go-tun2socks v1.16.12-0.20220818015926-16cb67876a61 // indirect
 	github.com/sagernet/netlink v0.0.0-20220905062125-8043b4a9aa97 // indirect
-	github.com/sagernet/sing v0.1.6 // indirect
+	github.com/sagernet/sing v0.1.7-0.20230207063819-27d2950cdbe9 // indirect
 	github.com/sagernet/sing-vmess v0.1.1 // indirect
+	github.com/sagernet/tfo-go v0.0.0-20230207095944-549363a7327d // indirect
 	github.com/sagernet/wireguard-go v0.0.0-20221116151939-c99467f53f2c // indirect
 	github.com/samber/lo v1.37.0 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
