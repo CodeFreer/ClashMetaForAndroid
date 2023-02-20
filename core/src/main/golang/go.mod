@@ -14,14 +14,13 @@ require (
 
 replace github.com/Dreamacro/clash => ../../foss/golang/clash
 
-require github.com/sagernet/sing v0.1.6
+require github.com/sagernet/sing v0.1.7-0.20230207063819-27d2950cdbe9
 
 require (
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/cilium/ebpf v0.9.3 // indirect
 	github.com/coreos/go-iptables v0.6.0 // indirect
-	github.com/database64128/tfo-go/v2 v2.0.2 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20210107165309-348f09dbbbc0 // indirect
 	github.com/gofrs/uuid v4.3.1+incompatible // indirect
@@ -39,10 +38,11 @@ require (
 	github.com/lunixbochs/struc v0.0.0-20200707160740-784aaebc1d40 // indirect
 	github.com/mdlayher/netlink v1.7.2-0.20221213171556-9881fafed8c7 // indirect
 	github.com/mdlayher/socket v0.4.0 // indirect
+	github.com/metacubex/gvisor v0.0.0-20230213124051-7a16c835d80e // indirect
 	github.com/metacubex/quic-go v0.32.0 // indirect
 	github.com/metacubex/sing-shadowsocks v0.1.1-0.20230202072246-e2bef5f088c7 // indirect
-	github.com/metacubex/sing-tun v0.1.1-0.20230129141228-645f74b2208b // indirect
-	github.com/metacubex/sing-wireguard v0.0.0-20230129141512-65b25e764f8e // indirect
+	github.com/metacubex/sing-tun v0.1.1-0.20230213124625-28d27a0c236b // indirect
+	github.com/metacubex/sing-wireguard v0.0.0-20230213124601-d04406a109b4 // indirect
 	github.com/mroth/weightedrand/v2 v2.0.0 // indirect
 	github.com/onsi/ginkgo/v2 v2.2.0 // indirect
 	github.com/oschwald/maxminddb-golang v1.10.0 // indirect
@@ -55,6 +55,7 @@ require (
 	github.com/sagernet/go-tun2socks v1.16.12-0.20220818015926-16cb67876a61 // indirect
 	github.com/sagernet/netlink v0.0.0-20220905062125-8043b4a9aa97 // indirect
 	github.com/sagernet/sing-vmess v0.1.1 // indirect
+	github.com/sagernet/tfo-go v0.0.0-20230207095944-549363a7327d // indirect
 	github.com/sagernet/wireguard-go v0.0.0-20221116151939-c99467f53f2c // indirect
 	github.com/samber/lo v1.37.0 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
@@ -73,7 +74,6 @@ require (
 	golang.org/x/tools v0.2.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	gvisor.dev/gvisor v0.0.0-20230128000341-b7014294633b // indirect
 	lukechampine.com/blake3 v1.1.7 // indirect
 )
 
