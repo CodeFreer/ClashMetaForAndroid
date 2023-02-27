@@ -22,6 +22,7 @@ import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.FileNotFoundException
+import java.math.BigDecimal
 import java.util.*
 
 class ProfileManager(private val context: Context) : IProfileManager,
@@ -159,13 +160,13 @@ class ProfileManager(private val context: Context) : IProfileManager,
                         val info = flag.split("=")
                         when {
                             info[0].contains("upload") -> upload =
-                                info[1].toLong()
+                                BigDecimal(info[1]).longValueExact()
 
                             info[0].contains("download") -> download =
-                                info[1].toLong()
+                                BigDecimal(info[1]).longValueExact()
 
-                            info[0].contains("total") -> total =
-                                info[1].toLong()
+                            info[0].contains("total") ->  total =
+                                BigDecimal(info[1]).longValueExact()
 
                             info[0].contains("expire") -> {
                                 if (info[1].isNotEmpty()) {
