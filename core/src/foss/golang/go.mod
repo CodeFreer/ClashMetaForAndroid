@@ -54,7 +54,7 @@ require (
 	github.com/metacubex/quic-go v0.33.3-0.20230322045857-901b636b4594 // indirect
 	github.com/metacubex/sing-shadowsocks v0.2.2-0.20230422111054-f54786eee8ba // indirect
 	github.com/metacubex/sing-tun v0.1.4 // indirect
-	github.com/metacubex/sing-wireguard v0.0.0-20230420053659-05c12d25b6eb // indirect
+	github.com/metacubex/sing-wireguard v0.0.0-20230426030325-41db09ae771a // indirect
 	github.com/miekg/dns v1.1.53 // indirect
 	github.com/mroth/weightedrand/v2 v2.0.1 // indirect
 	github.com/oasisprotocol/deoxysii v0.0.0-20220228165953-2091330c22b7 // indirect
@@ -68,8 +68,8 @@ require (
 	github.com/quic-go/qtls-go1-20 v0.1.1 // indirect
 	github.com/sagernet/go-tun2socks v1.16.12-0.20220818015926-16cb67876a61 // indirect
 	github.com/sagernet/netlink v0.0.0-20220905062125-8043b4a9aa97 // indirect
-	github.com/sagernet/sing v0.2.5-0.20230425064955-18ad281d47e1 // indirect
-	github.com/sagernet/sing-mux v0.0.0-20230424015424-9b0d527c3bb0 // indirect
+	github.com/sagernet/sing v0.2.5-0.20230425211221-a23ffbaeb5b9 // indirect
+	github.com/sagernet/sing-mux v0.0.0-20230425130511-b0a6ffd8406f // indirect
 	github.com/sagernet/sing-shadowtls v0.1.2-0.20230417103049-4f682e05f19b // indirect
 	github.com/sagernet/sing-vmess v0.1.5-0.20230417103030-8c3070ae3fb3 // indirect
 	github.com/sagernet/smux v0.0.0-20230312102458-337ec2a5af37 // indirect
