@@ -2,11 +2,9 @@ name: build_release
 
 on:
   push:
-    branches:
-      - main
     tags:
       - '*' #
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   BuildRelease:
