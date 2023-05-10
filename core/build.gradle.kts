@@ -23,6 +23,10 @@ golang {
             tags.set(listOf("foss","with_gvisor"))
             srcDir.set(file("src/foss/golang"))
         }
+        create("meta") {
+            tags.set(listOf("foss","with_gvisor"))
+            srcDir.set(file("src/foss/golang"))
+        }
         all {
             fileName.set("libclash.so")
             packageName.set("cfa/native")

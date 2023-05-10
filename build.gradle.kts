@@ -40,8 +40,8 @@ subprojects {
             minSdk = 21
             targetSdk = 31
 
-            versionName = "2.7.4"
-            versionCode = 207004
+            versionName = "2.8.0"
+            versionCode = 208000
 
             resValue("string", "release_name", "v$versionName")
             resValue("integer", "release_code", "$versionCode")
@@ -85,9 +85,24 @@ subprojects {
                     applicationIdSuffix = ".meta"
                 }
             }
+
+            create("meta") {
+
+                dimension = flavorDimensionList[0]
+                versionNameSuffix = ".Meta"
+
+                buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
+
+                if (isApp) {
+                    applicationIdSuffix = ".meta"
+                }
+            }
         }
 
         sourceSets {
+            getByName("meta") {
+                java.srcDirs("src/foss/java")
+            }
             getByName("meta-alpha") {
                 java.srcDirs("src/foss/java")
             }
