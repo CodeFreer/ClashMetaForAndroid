@@ -159,16 +159,16 @@ class ProfileManager(private val context: Context) : IProfileManager,
                     for (flag in flags) {
                         val info = flag.split("=")
                         when {
-                            info[0].contains("upload") -> upload =
+                            info[0].contains("upload") && info[1].isNotEmpty() -> upload =
                                 BigDecimal(info[1]).longValueExact()
 
-                            info[0].contains("download") -> download =
+                            info[0].contains("download") && info[1].isNotEmpty() -> download =
                                 BigDecimal(info[1]).longValueExact()
 
-                            info[0].contains("total") ->  total =
+                            info[0].contains("total") && info[1].isNotEmpty() ->  total =
                                 BigDecimal(info[1]).longValueExact()
 
-                            info[0].contains("expire") -> {
+                            info[0].contains("expire") && info[1].isNotEmpty() -> {
                                 if (info[1].isNotEmpty()) {
                                     expire = (info[1].toDouble()*1000).toLong()
                                 }

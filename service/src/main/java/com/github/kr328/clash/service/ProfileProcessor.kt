@@ -87,21 +87,17 @@ object ProfileProcessor {
                                         for (flag in flags) {
                                             val info = flag.split("=")
                                             when {
-                                                info[0].contains("upload") -> upload =
+                                                info[0].contains("upload") && info[1].isNotEmpty() -> upload =
                                                     info[1].toLong()
 
-                                                info[0].contains("download") -> download =
+                                                info[0].contains("download") && info[1].isNotEmpty() -> download =
                                                     info[1].toLong()
 
-                                                info[0].contains("total") -> total =
+                                                info[0].contains("total") && info[1].isNotEmpty() -> total =
                                                     info[1].toLong()
 
-                                                info[0].contains("expire") -> {
-                                                    if (info[1].isNotEmpty()) {
-                                                        expire =
-                                                            (info[1].toDouble() * 1000).toLong()
-                                                    }
-                                                }
+                                                info[0].contains("expire") && info[1].isNotEmpty() ->  expire =
+                                                    (info[1].toDouble() * 1000).toLong()
                                             }
                                         }
                                     }
