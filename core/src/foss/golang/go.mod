@@ -108,6 +108,6 @@ replace github.com/Dreamacro/clash => ./clash
 
 replace cfa/blob => ../../../build/intermediates/golang_blob
 
-replace gvisor.dev/gvisor v0.0.0-20230128000341-b7014294633b => github.com/metacubex/gvisor v0.0.0-20230202073621-9b7164de61df
+replace gvisor.dev/gvisor v0.0.0-20230128000341-b7014294633b => github.com/metacubex/gvisor v0.0.0-20230417114019-3c3ee672d60c
 
 replace go.uber.org/atomic v1.10.0 => github.com/metacubex/uber-atomic v0.0.0-20230202125923-feb10b770370
